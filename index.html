@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oferta Relâmpago - Cacau Show</title>
+    <!-- Fonte moderna do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* RESET E CONFIGURAÇÕES GERAIS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #fdfaf6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        /* BARRA DE URGÊNCIA (TOPO) */
+        .top-bar {
+            background-color: #d32f2f;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        /* SEÇÃO HERO (PRINCIPAL) */
+        .hero {
+            background: linear-gradient(135deg, #3e1e04 0%, #1c0d02 100%);
+            color: white;
+            padding: 80px 0 40px 0; /* Espaço para a top-bar */
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #f3c623;
+            color: #1c0d02;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 900;
+            font-size: 14px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 .gold {
+            color: #f3c623;
+        }
+
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+
+        .hero img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+        }
+
+        .pricing {
+            margin: 20px 0;
+        }
+
+        .old-price {
+            font-size: 18px;
+            color: #ff6b6b;
+            text-decoration: line-through;
+            display: block;
+        }
+
+        .new-price {
+            font-size: 38px;
+            font-weight: 900;
+            color: #25d366;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* BOTÃO DE COMPRA PULSANTE */
+        .cta-btn {
+            display: inline-block;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: 900;
+            padding: 20px 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            transition: 0.3s;
+            animation: pulse 1.5s infinite;
+        }
+
+        .cta-btn:hover {
+            background-color: #1ebd57;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .safe-checkout {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* CRONÔMETRO DE URGÊNCIA */
+        .timer-section {
+            background-color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 2px dashed #ccc;
+        }
+
+        .timer-section h2 {
+            font-size: 20px;
+            color: #d32f2f;
+            margin-bottom: 10px;
+        }
+
+        #timer {
+            font-size: 40px;
+            font-weight: 900;
+            color: #333;
+            letter-spacing: 2px;
+        }
+
+        .alert-text {
+            color: #555;
+            font-size: 14px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* BENEFÍCIOS */
+        .benefits {
+            padding: 40px 20px;
+            background-color: #fdfaf6;
+        }
+
+        .benefits h2 {
+            font-size: 26px;
+            color: #3e1e04;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .benefit-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: left;
+            border-left: 5px solid #f3c623;
+        }
+
+        .benefit-item h3 {
+            color: #3e1e04;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        /* PROVA SOCIAL */
+        .testimonials {
+            padding: 40px 20px;
+            background-color: #eaddd3;
+        }
+
+        .testimonials h2 {
+            font-size: 26px;
+            color: #3e1e04;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .review-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            text-align: left;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .stars {
+            color: #f3c623;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        /* CHAMADA FINAL */
+        .final-cta {
+            background: #3e1e04;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #f3c623;
+        }
+
+        .final-cta ul {
+            list-style: none;
+            text-align: left;
+            max-width: 300px;
+            margin: 0 auto 20px auto;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background-color: #1c0d02;
+            color: #888;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA DO TOPO -->
+    <div class="top-bar">
+        ⚡ OFERTA RELÂMPAGO: ESTOQUE LIMITADO NAS PRÓXIMAS 2 HORAS! ⚡
+    </div>
+
+    <!-- SEÇÃO PRINCIPAL -->
+    <header class="hero">
+        <div class="container">
+            <span class="badge">⚠️ Lote Promocional Liberado</span>
+            <h1>A Loucura de Páscoa Chegou! Leve <span class="gold">DOIS</span> Ovos Cacau Show por Apenas <span class="gold">R$ 29,90!</span> 🐰</h1>
+            <p>O sabor inconfundível, o chocolate que derrete na boca e a qualidade premium que você já conhece... Pelo menor preço da história.</p>
+            
+            <!-- IMAGEM ILUSTRATIVA (Substitua o link pela imagem oficial do seu produto) -->
+            <img src="foto.jpg" alt="Ovos de Páscoa Cacau Show">
+            
+            <div class="pricing">
+                <span class="old-price">De: R$ 99,90</span>
+                <span class="new-price">Por: R$ 29,90 <br>(OS DOIS!)</span>
+            </div>
+            
+            <a href="#checkout" class="cta-btn">👉 COMPRAR AGORA!</a>
+            <span class="safe-checkout">🔒 Compra 100% Segura e Garantida</span>
+        </div>
+    </header>
+
+    <!-- CRONÔMETRO -->
+    <section class="timer-section">
+        <div class="container">
+            <h2>⏳ A OFERTA ENCERRA EM:</h2>
+            <div id="timer">01:45:12</div>
+            <p class="alert-text">🔥 ATENÇÃO: Restam apenas <span style="color:#d32f2f">14 kits</span> disponíveis nesse valor. Se você sair agora, perderá o desconto!</p>
+        </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section class="benefits">
+        <div class="container">
+            <h2>Por que você não pode deixar essa oferta passar?</h2>
+            
+            <div class="benefit-item">
+                <h3>✨ Qualidade Cacau Show</h3>
+                <p>O chocolate mais amado do Brasil, com aquele aroma e sabor que não têm comparação.</p>
+            </div>
+            
+            <div class="benefit-item">
+                <h3>🎁 Presente Perfeito</h3>
+                <p>Leve dois! Dê um para quem você ama e devore o outro sem culpa (ou fique com os dois, nós não julgamos!).</p>
+            </div>
+
+            <div class="benefit-item">
+                <h3>💰 Economia Absurda</h3>
+                <p>Você está levando dois ovos premium pelo preço de uma barra de chocolate comum de supermercado. É irracional não aproveitar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROVA SOCIAL -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Quem comprou no último lote, amou!</h2>
+            
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p>"Eu achei que era mentira pelo valor, mas comprei para testar. Chegou perfeito, muito bem embalado e é Cacau Show original mesmo! Vou comprar mais!"</p>
+                <br><strong>- Mariana T., São Paulo</strong>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p>"Melhor compra do ano! Comprei pra dar para os meus sobrinhos e economizei muito. O site é super seguro e chegou rápido."</p>
+                <br><strong>- Rafael M., Minas Gerais</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAMADA FINAL -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>ÚLTIMA CHANCE!</h2>
+            <p>O que você vai receber em casa:</p>
+            <ul>
+                <li>✅ 02 Ovos de Páscoa Cacau Show Clássicos</li>
+                <li>✅ Embalagem especial para presente</li>
+                <li>✅ Entrega Rápida e Garantida</li>
+            </ul>
+            
+            <div class="pricing">
+                <span class="new-price">TUDO POR R$ 29,90</span>
+            </div>
+
+            <a href="#checkout" class="cta-btn" style="margin-top: 15px;">👉 GARANTIR MEU PEDIDO</a>
+            <p style="margin-top: 15px; font-size: 14px; color: #bbb;">💳 Aceitamos PIX e Cartão de Crédito.</p>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="container">
+            <p>Termos de Uso | Políticas de Privacidade | Contato</p>
+            <p style="margin-top: 10px;">*Imagens meramente ilustrativas. Oferta válida enquanto durarem os estoques.</p>
+            <p style="margin-top: 10px; font-size: 10px;">Este site não tem afiliação direta com a marca Cacau Show, tratando-se de um layout de exemplo para revendedores.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DO CRONÔMETRO -->
+    <script>
+        // Tempo do cronômetro: 1 hora, 45 minutos e 12 segundos em segundos
+        let timeInSeconds = (1 * 3600) + (45 * 60) + 12; 
+        
+        const timerElement = document.getElementById('timer');
+
+        function updateTimer() {
+            let hours = Math.floor(timeInSeconds / 3600);
+            let minutes = Math.floor((timeInSeconds % 3600) / 60);
+            let seconds = timeInSeconds % 60;
+
+            // Formatação para colocar o zero na frente se for menor que 10
+            let hStr = hours < 10 ? '0' + hours : hours;
+            let mStr = minutes < 10 ? '0' + minutes : minutes;
+            let sStr = seconds < 10 ? '0' + seconds : seconds;
+
+            timerElement.textContent = `${hStr}:${mStr}:${sStr}`;
+
+            if (timeInSeconds > 0) {
+                timeInSeconds--;
+            }
+        }
+
+        // Atualiza o cronômetro a cada 1 segundo (1000 milissegundos)
+        setInterval(updateTimer, 1000);
+        updateTimer(); // Chama uma vez para não ter delay na tela
+    </script>
+
+</body>
+</html>
